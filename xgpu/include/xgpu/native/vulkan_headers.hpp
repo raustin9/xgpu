@@ -1,0 +1,16 @@
+#ifndef XGPU_NATIVE_VULKAN_HEADERS_HPP_
+#define XGPU_NATIVE_VULKAN_HEADERS_HPP_
+
+#include "core/core.hpp"
+
+#ifdef XGPU_COMPILE_VULKAN
+
+#ifdef XGPU_PLATFORM_MACOS
+#define VK_USE_PLATFORM_METAL_EXT
+#define VK_USE_PLATFORM_MACOS_MVK
+#endif // XGPU_PLATFORM_MACOS
+
+#include <vulkan/vulkan.h>
+#endif // XGPU_COMPILE_VULKAN
+
+#endif // XGPU_NATIVE_VULKAN_HEADERS_HPP_

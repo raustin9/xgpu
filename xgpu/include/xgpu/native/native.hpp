@@ -1,0 +1,6 @@
+#ifndef XGPU_NATIVE_NATIVE_HPP_
+#define XGPU_NATIVE_NATIVE_HPP_
+
+
+
+#endif // XGPU_NATIVE_NATIVE_HPP_

@@ -4,3 +4,4 @@
 #include "error.hpp"
 #include "platform.hpp"
 #include "platform_detection.hpp"
+#include "expected.hpp"

@@ -30,6 +30,13 @@ target_include_directories(xgpu
 )
 target_link_libraries(xgpu PUBLIC rtl)
 
+# Link to vulkan if available
+if (Vulkan_FOUND)
+    message(STATUS "Linking to vulkan")
+    target_link_libraries(xgpu PUBLIC Vulkan::Vulkan)
+    target_compile_definitions(xgpu PUBLIC XGPU_COMPILE_VULKAN)
+endif ()
+
 target_compile_definitions(xgpu PUBLIC "$<$<CONFIG:Debug>:XGPU_DEBUG>")
 
 set_target_properties(xgpu PROPERTIES
@@ -39,6 +46,7 @@ set_target_properties(xgpu PROPERTIES
 add_library(XGPU::xgpu ALIAS xgpu)
 set(XGPU_FOUND TRUE PARENT_SCOPE)
 
+# clang-tidy for linting
 find_program(CLANG_TIDY_EXE NAMES "clang-tidy")
 if(CLANG_TIDY_EXE)
     message(STATUS "Clang-Tidy found: ${CLANG_TIDY_EXE}")
